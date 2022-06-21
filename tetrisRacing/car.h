@@ -7,15 +7,15 @@
 class Car : public QGraphicsPixmapItem
 {
 public:
-  Car();
-  virtual ~Car() = default;
+  Car(); //конструктор по умолчанию
+  virtual ~Car() = default; //виртуальный декструктор,для корректного освобождения памяти
 public:
-  virtual void initCar();
-  void advance(int phase) override;
-  void setSpeed(int speed);
+  virtual void initCar(); //инициализация машины( устанавливаем изображение\размеры)
+  void advance(int phase) override; //перемещает машину на один шаг
+  void setSpeed(int speed); // установка скорости (какое расстояние машина проходит за один шаг)
 protected:
-  int m_speed;
-  QPixmap m_pix;
+  int m_speed; //cкорость
+  QPixmap m_pix; // изображение машины
 };
 
 #endif // CAR_H

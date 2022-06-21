@@ -7,9 +7,9 @@
 class Road : public QGraphicsPixmapItem
 {
 public:
-  Road(const QSize& size);
+  Road(const QSize& size); //конструктор принимающий размер дороги
 private:
-  QPixmap m_roadPix;
+  QPixmap m_roadPix; //изображение дороги
 };
 
 #endif // ROAD_H

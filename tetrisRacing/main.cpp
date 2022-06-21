@@ -9,22 +9,23 @@ int main(int argc, char *argv[])
 {
   QApplication a(argc, argv);
 
-  QGraphicsView view;
 
 
- const int height = QApplication::primaryScreen()->geometry().height() / 2; // получаем физические размеры экрана
- const int width = 500;
+
+  const int height = QApplication::primaryScreen()->geometry().height() / 2; // получаем высоту экрана
+  const int width = 500; //ширина окна
 
 
-  CustomScene roadScene(QSize(500,height));
+  CustomScene customScene(QSize(width,height)); //сцена для управления 2D элементами
 
-  view.setFixedHeight(height);
-  view.setFixedWidth(width);
-  view.setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+  QGraphicsView view; // виджет для отображения содержимого сцены
+  view.setFixedHeight(height); // устанавливаем фиксированную высоту виджета
+  view.setFixedWidth(width);// устанавливаем фиксированную ширину виджета
+  view.setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff); //отключем скролл у виджета
   view.setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-  view.setScene(&roadScene);
-  view.show();
+  view.setScene(&customScene); //устанавливаем виджету сцену для отображения
+  view.show(); // показываем виджет
 
   return a.exec();
 }
